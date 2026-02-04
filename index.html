@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel Master Dashboard - SSCEC</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --level1: #27ae60; --level2: #f39c12; --level3: #2980b9; 
+            --level4: #e74c3c; --level5: #9b59b6; --dark: #1a252f;
+            --accent: #f1c40f;
+        }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f4f7f6; margin: 0; padding: 0; }
+
+        .dashboard-header {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('background_pic.png');
+            background-size: cover;
+            background-position: center 17%; 
+            background-attachment: fixed;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            border-bottom: 5px solid var(--accent);
+        }
+        .dashboard-header h1 { font-size: 2.5rem; margin: 0; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+        .dashboard-header p { font-size: 1.2rem; opacity: 0.9; margin-top: 10px; background: rgba(255,255,255,0.1); padding: 5px 20px; border-radius: 50px; }
+
+        .container { max-width: 1200px; margin: -50px auto 50px; padding: 0 20px; position: relative; z-index: 2; }
+
+        .level-section { margin-bottom: 50px; background: white; padding: 25px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .level-title { 
+            display: flex; align-items: center; gap: 15px;
+            padding: 15px; border-radius: 10px; color: white;
+            margin-bottom: 25px;
+        }
+
+        .chapter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+        .chapter-card {
+            background: #fff; border: 1px solid #eee; border-radius: 12px; padding: 20px 10px;
+            text-align: center; text-decoration: none; color: #333;
+            transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            display: flex; flex-direction: column; align-items: center;
+            border-bottom: 4px solid #ddd;
+        }
+        .chapter-card:hover { transform: translateY(-8px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .chapter-card i { font-size: 1.8rem; margin-bottom: 12px; }
+        .chapter-card span { font-size: 0.7rem; font-weight: bold; color: #999; text-transform: uppercase; }
+        .chapter-card h4 { margin: 10px 0 0; font-size: 1rem; color: var(--dark); }
+
+        /* Color Coding */
+        .lvl-1 { background: var(--level1); } .card-1:hover { border-bottom-color: var(--level1); } .card-1 i { color: var(--level1); }
+        .lvl-2 { background: var(--level2); } .card-2:hover { border-bottom-color: var(--level2); } .card-2 i { color: var(--level2); }
+        .lvl-3 { background: var(--level3); } .card-3:hover { border-bottom-color: var(--level3); } .card-3 i { color: var(--level3); }
+        .lvl-4 { background: var(--level4); } .card-4:hover { border-bottom-color: var(--level4); } .card-4 i { color: var(--level4); }
+        .lvl-5 { background: var(--level5); } .card-5:hover { border-bottom-color: var(--level5); } .card-5 i { color: var(--level5); }
+
+        footer { background: var(--dark); color: white; padding: 40px; text-align: center; border-top: 5px solid var(--accent); }
+    </style>
+</head>
+<body>
+
+<header class="dashboard-header">
+    <h1><i class="fas fa-file-excel"></i> MS Excel Full Course Mastery</h1>
+    <p><i class="fas fa-user-graduate"></i> Super Success Computer Education Center</p>
+</header>
+
+<div class="container">
+    
+    <section class="level-section">
+        <div class="level-title lvl-1">
+            <i class="fas fa-seedling fa-2x"></i>
+            <div><h3>LEVEL 1: Beginner</h3><small>মৌলিক ধারণা ও ভিত্তি তৈরি</small></div>
+        </div>
+        <div class="chapter-grid">
+            <a href="excel_chapter_1.html" class="chapter-card card-1"><span>CH 1</span><i class="fas fa-desktop"></i><h4>Excel পরিচিতি</h4></a>
+            <a href="excel_chapter_2.html" class="chapter-card card-1"><span>CH 2</span><i class="fas fa-keyboard"></i><h4>Data Entry</h4></a>
+            <a href="excel_chapter_3.html" class="chapter-card card-1"><span>CH 3</span><i class="fas fa-paint-brush"></i><h4>Formatting</h4></a>
+            <a href="excel_chapter_4.html" class="chapter-card card-1"><span>CH 4</span><i class="fas fa-calculator"></i><h4>Formulas</h4></a>
+            <a href="excel_chapter_5.html" class="chapter-card card-1"><span>CH 5</span><i class="fas fa-percent"></i><h4>Functions</h4></a>
+            <a href="excel_chapter_6.html" class="chapter-card card-1"><span>CH 6</span><i class="fas fa-print"></i><h4>Printing</h4></a>
+            <a href="final_exam.html" class="chapter-card card-1" style="background:#f0fff4;"><span>EXAM</span><i class="fas fa-trophy"></i><h4>Level 1 Quiz</h4></a>
+        </div>
+    </section>
+
+    <section class="level-section">
+        <div class="level-title lvl-2">
+            <i class="fas fa-briefcase fa-2x"></i>
+            <div>
+                <h3>LEVEL 2: Intermediate</h3>
+                <small>অফিস কাজের মূল দক্ষতা</small>
+            </div>
+        </div>
+        <div class="chapter-grid">
+            <a href="excel_chapter_7.html" class="chapter-card card-2">
+                <span>CH 7</span><i class="fas fa-anchor"></i><h4>Cell Reference</h4>
+            </a>
+            <a href="excel_chapter_8.html" class="chapter-card card-2">
+                <span>CH 8</span><i class="fas fa-code-branch"></i><h4>Logical IF</h4>
+            </a>
+            <a href="excel_chapter_9.html" class="chapter-card card-2">
+                <span>CH 9</span><i class="fas fa-font"></i><h4>Text Func</h4>
+            </a>
+            <a href="excel_chapter_10.html" class="chapter-card card-2">
+                <span>CH 10</span><i class="fas fa-calendar-alt"></i><h4>Date & Time Functions</h4>
+            </a>
+            <a href="excel_chapter_11.html" class="chapter-card card-2">
+                <span>CH 11</span><i class="fas fa-filter"></i><h4>Data Sorting & Filtering</h4>
+            </a>
+            <a href="excel_chapter_12.html" class="chapter-card card-2">
+                <span>CH 12</span><i class="fas fa-paint-roller"></i><h4>Conditional Formatting</h4>
+            </a>
+            <a href="excel_chapter_13.html" class="chapter-card card-2">
+                <span>CH 13</span><i class="fas fa-check-double"></i><h4>Data Validation</h4>
+            </a>
+            <a href="excel_chapter_14.html" class="chapter-card card-2">
+                <span>CH 14</span><i class="fas fa-table"></i><h4>Tables</h4>
+            </a>
+            <a href="final_exam_level2.html" class="chapter-card card-2">
+                <span>EXAM</span><i class="fas fa-user-graduate"></i><h4>Level 2 Quiz</h4>
+            </a>
+        </div>
+    </section>
+
+    <section class="level-section">
+        <div class="level-title lvl-3">
+            <i class="fas fa-chart-line fa-2x"></i>
+            <div><h3>LEVEL 3 & 4: Advanced & Expert</h3><small>VLOOKUP, Dashboard & Macros</small></div>
+        </div>
+        <p style="text-align: center; color: #888;">Coming Soon...</p>
+    </section>
+
+    <section class="level-section">
+        <div class="level-title lvl-5">
+            <i class="fas fa-file-invoice-dollar fa-2x"></i>
+            <div><h3>LEVEL 5: Accounting Special</h3><small>অ্যাকাউন্টিং ও অফিস অটোমেশন</small></div>
+        </div>
+        <div class="chapter-grid">
+            <a href="#" class="chapter-card card-5"><span>CH 32</span><i class="fas fa-users-cog"></i><h4>Salary Sheet</h4></a>
+            <a href="#" class="chapter-card card-5"><span>CH 33</span><i class="fas fa-receipt"></i><h4>GST Working</h4></a>
+        </div>
+    </section>
+
+</div>
+
+<footer>
+    <p><strong>Super Success Computer Education Center</strong></p>
+    <p>📍 উত্তর দমদম, পশ্চিমবঙ্গ | 📞 8017247298</p>
+    <small>© 2026 Bipul Sarkar | Digital Excel Course</small>
+</footer>
+
+</body>
+</html>
