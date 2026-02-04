@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel Chapter 6 - SSCEC</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --excel-green: #217346;
+            --excel-light: #e9f5ee;
+            --accent: #e67e22;
+            --text-dark: #2c3e50;
+        }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #fdfdfd; color: var(--text-dark); line-height: 1.6; margin: 0; padding: 0; }
+        
+        /* Header */
+        header { background: var(--excel-green); color: white; padding: 40px 20px; text-align: center; border-bottom: 5px solid var(--accent); }
+        header h1 { margin: 0; font-size: 1.8rem; }
+
+        .container { max-width: 900px; margin: 30px auto; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+
+        h2 { color: var(--excel-green); border-bottom: 2px solid #ddd; padding-bottom: 10px; margin-top: 35px; display: flex; align-items: center; gap: 10px; }
+        
+        /* Highlight Box */
+        .intro-box { background: #fdf9f4; border-left: 5px solid var(--accent); padding: 20px; border-radius: 5px; margin-bottom: 30px; }
+        
+        /* Feature List Style */
+        .step-container { margin: 20px 0; padding: 15px; background: #f9f9f9; border-radius: 10px; border: 1px solid #eee; }
+        .path-label { display: inline-block; background: #e2e8f0; padding: 3px 10px; border-radius: 5px; font-family: monospace; font-size: 0.9rem; color: #4a5568; margin-top: 10px; }
+
+        /* Pro Tip Box */
+        .pro-tip { background: #fff4e6; border: 1px dashed #d35400; padding: 20px; border-radius: 8px; margin: 25px 0; }
+        .pro-tip h3 { margin-top: 0; color: #d35400; display: flex; align-items: center; gap: 8px; }
+
+        /* Quiz Section */
+        .quiz-section { background: #1a252f; color: white; padding: 35px; border-radius: 15px; margin-top: 50px; }
+        .quiz-item { margin-bottom: 20px; border-bottom: 1px solid #34495e; padding-bottom: 15px; }
+        .question { color: #f1c40f; font-weight: bold; display: block; margin-bottom: 5px; }
+        .answer { color: #ecf0f1; font-style: italic; }
+
+        /* Download Button */
+        .download-btn {
+            display: inline-block; background: var(--excel-green); color: white; padding: 16px 40px; 
+            text-decoration: none; border-radius: 50px; font-weight: bold; margin: 40px 0;
+            transition: 0.3s; box-shadow: 0 4px 15px rgba(33, 115, 70, 0.3);
+        }
+        .download-btn:hover { background: #185a37; transform: translateY(-3px); scale: 1.02; }
+
+        footer { text-align: center; padding: 40px; color: #777; border-top: 1px solid #eee; }
+
+        @media (max-width: 600px) { .container { padding: 20px; margin: 10px; } }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1><i class="fas fa-print"></i> অধ্যায় ৬: পেজ সেটআপ এবং প্রিন্টিং (Page Setup & Printing)</h1>
+</header>
+
+<div class="container">
+    
+    <div class="intro-box">
+        <p><i class="fas fa-info-circle"></i> এক্সেল শিট প্রিন্ট করার আগে সেটি সাজানো একটি শিল্প। কারণ, এক্সেলে হাজার হাজার কলাম থাকে যা একটি সাধারণ কাগজে ধরে না।</p>
+    </div>
+
+    <h2><i class="fas fa-file-alt"></i> ১. ওরিয়েন্টেশন (Orientation): পাতার দিক পরিবর্তন</h2>
+    <div class="step-container">
+        <p>আপনার টেবিলটি যদি লম্বায় বড় হয় তবে <strong>Portrait</strong> ব্যবহার করুন। আর যদি কলাম বেশি হয় (ডানে-বামে বড়), তবে অবশ্যই <strong>Landscape</strong> বেছে নিন।</p>
+        <div class="path-label">Path: Page Layout → Orientation → Portrait / Landscape</div>
+    </div>
+
+    <h2><i class="fas fa-border-style"></i> ২. মার্জিন (Margin): চারপাশের খালি জায়গা</h2>
+    <div class="step-container">
+        <p>পাতার চারপাশের সাদা অংশকে মার্জিন বলে। যদি আপনার ডাটা অনেক বেশি হয় এবং সামান্যর জন্য এক পাতায় ধরছে না, তবে মার্জিন <strong>Narrow</strong> করে দিন। এতে লেখার জায়গা বাড়বে।</p>
+        <div class="path-label">Path: Page Layout → Margins → Narrow</div>
+    </div>
+
+    <h2><i class="fas fa-crop-alt"></i> ৩. প্রিন্ট এরিয়া (Print Area): নির্দিষ্ট অংশ প্রিন্ট</h2>
+    <div class="step-container">
+        <p>পুরো শিটে হয়তো অনেক ডাটা আছে, কিন্তু আপনি চাচ্ছেন শুধু একটি নির্দিষ্ট টেবিল প্রিন্ট করতে।</p>
+        <ol>
+            <li>প্রথমে কাঙ্ক্ষিত অংশটুকু মাউস দিয়ে <strong>Select</strong> করুন।</li>
+            <li>Page Layout → Print Area → <strong>Set Print Area</strong>-তে ক্লিক করুন।</li>
+        </ol>
+    </div>
+
+    <div class="pro-tip">
+        <h3><i class="fas fa-lightbulb"></i> ৪. স্কেলিং (Scaling): সব ডাটা এক পাতায় আনা (Pro Tip💡)</h3>
+        <p>অনেক সময় একটি কলামের জন্য ডাটা দ্বিতীয় পাতায় চলে যায়। তখন <strong>Page Layout</strong> ট্যাবে গিয়ে <strong>Width</strong> অপশনটি <strong>1 Page</strong> করে দিলে সব কলাম এক পাতায় ফিট হয়ে যাবে।</p>
+    </div>
+
+    <div class="quiz-section">
+        <h2><i class="fas fa-tasks"></i> পেজ সেটআপ ও প্রিন্টিং কুইজ (অধ্যায় ৬)</h2>
+        
+        <div class="quiz-item">
+            <span class="question">১. প্রশ্ন: বড় টেবিল বা বেশি কলাম থাকলে পাতাটি কোন দিকে (Orientation) রাখলে ভালো হয়?</span>
+            <span class="answer">উত্তর: Landscape।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="question">২. প্রশ্ন: প্রিন্ট করার আগে কেমন দেখাবে তা দেখার জন্য (Print Preview) কিবোর্ড শর্টকাট কী?</span>
+            <span class="answer">উত্তর: Ctrl + P।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="question">৩. প্রশ্ন: একটি বিশাল শিটের মাঝখান থেকে মাত্র ৩টি রো প্রিন্ট করতে চাইলে কোন অপশনটি ব্যবহার করবেন?</span>
+            <span class="answer">উত্তর: Set Print Area।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="question">৪. প্রশ্ন: পাতায় বেশি ডাটা বা লেখা জায়গা দেওয়ার জন্য কোন মার্জিনটি সবচেয়ে উপযোগী?</span>
+            <span class="answer">উত্তর: Narrow Margin।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="question">৫. প্রশ্ন: এক্সেলে পেজ সেটআপ এবং প্রিন্টিং এর সব অপশন কোন ট্যাবে পাওয়া যায়?</span>
+            <span class="answer">উত্তর: Page Layout ট্যাবে।</span>
+        </div>
+    </div>
+
+    <div style="text-align: center;">
+        <a href="https://drive.google.com/uc?export=download&id=1n4FuuRNoj74tKufkPH7fFHoFUS9YnsAj" class="download-btn">
+            <i class="fas fa-file-pdf"></i> অধ্যায় ৬ এর PDF ডাউনলোড করুন
+        </a>
+    </div>
+
+</div>
+
+<footer>
+    <strong>Super Success Computer Education Center</strong><br>
+    © 2026 Bipul Sarkar | Digital Classroom
+</footer>
+
+</body>
+</html>

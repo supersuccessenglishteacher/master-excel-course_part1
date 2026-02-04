@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel Chapter 8 - SSCEC</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --level2: #f39c12;
+            --excel-green: #217346;
+            --dark-blue: #2c3e50;
+            --light-bg: #fdfaf5;
+        }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f4f7f6; color: #333; line-height: 1.6; margin: 0; padding: 0; }
+        
+        header { background: linear-gradient(135deg, var(--level2), #d35400); color: white; padding: 40px 20px; text-align: center; border-bottom: 5px solid var(--dark-blue); }
+        
+        .container { max-width: 900px; margin: 30px auto; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+
+        h2 { color: var(--dark-blue); border-left: 5px solid var(--level2); padding-left: 15px; margin-top: 30px; }
+        
+        .logic-card { background: var(--light-bg); border: 1px solid #f9ebcc; padding: 20px; border-radius: 10px; margin: 20px 0; }
+        .logic-card h3 { margin-top: 0; color: #e67e22; }
+
+        /* Formula Style */
+        .formula { background: #2c3e50; color: #f1c40f; padding: 12px; border-radius: 6px; font-family: 'Courier New', monospace; display: block; margin: 10px 0; overflow-x: auto; }
+        .comment { color: #95a5a6; font-style: italic; }
+
+        /* Quiz Styling */
+        .quiz-container { background: var(--dark-blue); color: white; padding: 30px; border-radius: 15px; margin-top: 40px; }
+        .quiz-item { border-bottom: 1px solid #3e5871; padding: 15px 0; }
+        .question { color: #f1c40f; font-weight: bold; margin-bottom: 5px; display: block; }
+        .answer { color: #ecf0f1; font-style: italic; }
+
+        /* Download Button */
+        .btn-download {
+            display: inline-block; background: var(--level2); color: white; padding: 15px 35px; 
+            text-decoration: none; border-radius: 50px; font-weight: bold; margin: 30px 0;
+            transition: 0.3s; box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
+        }
+        .btn-download:hover { background: #d35400; transform: translateY(-3px); }
+
+        footer { text-align: center; padding: 40px; color: #777; border-top: 1px solid #eee; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1><i class="fas fa-brain"></i> অধ্যায় ৮: লজিক্যাল ফাংশন (Logical Functions)</h1>
+    <p>Excel-কে সিদ্ধান্ত নিতে শেখান</p>
+</header>
+
+<div class="container">
+    
+    <h2>১. IF() ফাংশন: সিদ্ধান্ত নেওয়ার ক্ষমতা</h2>
+    <p>এটি একটি শর্ত (Condition) চেক করে। শর্ত পূরণ হলে একরকম ফলাফল দেয়, আর না হলে অন্যরকম।</p>
+    
+    <div class="logic-card">
+        <strong>গঠন (Syntax):</strong>
+        <code class="formula">=IF(শর্ত, "সঠিক হলে ফলাফল", "ভুল হলে ফলাফল")</code>
+        <strong>উদাহরণ:</strong>
+        <code class="formula">=IF(A1>=33, "Pass", "Fail")</code>
+        <p class="comment">// যদি A1 এর মান ৩৩ বা তার বেশি হয় তবে Pass দেখাবে, নয়তো Fail।</p>
+    </div>
+
+    <h2>২. AND() এবং OR() ফাংশন</h2>
+    <p>এগুলো সাধারণত IF-এর সাথে ব্যবহার করা হয় একাধিক শর্ত যাচাই করতে।</p>
+    <div class="logic-card" style="border-left-color: #3498db;">
+        <h3><i class="fas fa-link"></i> AND ফাংশন</h3>
+        <p>যখন <strong>সবগুলো</strong> শর্ত সত্য হতে হবে। (যেমন: সব বিষয়ে আলাদাভাবে পাস করতে হবে)।</p>
+    </div>
+    <div class="logic-card" style="border-left-color: #9b59b6;">
+        <h3><i class="fas fa-project-diagram"></i> OR ফাংশন</h3>
+        <p>যখন <strong>যেকোনো একটি</strong> শর্ত সত্য হলেই চলবে। (যেমন: ভোটার কার্ড অথবা আধার কার্ড থাকলেই হবে)।</p>
+    </div>
+
+    <h2>৩. Nested IF (নেস্টেড ইফ)</h2>
+    <p>যখন আমাদের অনেকগুলো শর্ত থাকে (যেমন গ্রেড শিট: A, B, C, D), তখন একটি IF-এর ভেতরে আরেকটি IF ব্যবহার করা হয়। একেই বলে নেস্টেড ইফ।</p>
+    
+
+    <div class="quiz-container">
+        <h2 style="color: #f1c40f; border: none; margin-top: 0;">লজিক্যাল ফাংশন কুইজ (১০টি প্রশ্ন)</h2>
+        
+        <div class="quiz-item">
+            <span class="question">১. প্রশ্ন: এক্সেলে "যদি এটা হয়, তবে ওটা হবে"—এমন সিদ্ধান্ত নিতে কোন ফাংশন ব্যবহার করা হয়?</span>
+            <span class="answer">উত্তর: IF ফাংশন।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="question">২. প্রশ্ন: =IF(A1>50, "Yes", "No")—এখানে A1 এর মান ৬০ হলে ফলাফল কী আসবে?</span>
+            <span class="answer">উত্তর: Yes।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="question">৩. প্রশ্ন: AND ফাংশন কখন TRUE ফলাফল দেয়?</span>
+            <span class="answer">উত্তর: যখন এর ভেতরের সবগুলো শর্ত (Conditions) সত্য হয়।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="question">৪. প্রশ্ন: অনেকগুলো শর্তের মধ্যে যেকোনো একটি সত্য হলেই ফলাফল TRUE দেয় কোন ফাংশন?</span>
+            <span class="answer">উত্তর: OR ফাংশন।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="question">৫. প্রশ্ন: একটি IF ফাংশনের ভেতরে আরেকটি IF ফাংশন ব্যবহার করাকে কী বলে?</span>
+            <span class="answer">উত্তর: Nested IF।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="question">৬. প্রশ্ন: টেক্সট বা লেখা ফর্মুলার ভেতরে লিখলে তাকে কোন চিহ্নের ভেতরে রাখতে হয়?</span>
+            <span class="answer">উত্তর: ডাবল কোটেশন " " চিহ্নের ভেতরে।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="question">৭. প্রশ্ন: =IF(A1>=80, "A+", "Next")—এখানে যদি A1 এর মান ৮০ হয়, তবে ফলাফল কী আসবে?</span>
+            <span class="answer">উত্তর: A+।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="question">৮. প্রশ্ন: ফর্মুলা সঠিক কোনটি? (ক) =IF(A1=10, "Ok") (খ) =IF(A1=10, "Ok", "Not Ok")</span>
+            <span class="answer">উত্তর: (খ) নম্বরটি সঠিক।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="question">৯. প্রশ্ন: কোনো ছাত্রের ৩টি বিষয়েই পাস করা নিশ্চিত করতে কোন ফাংশনটি ব্যবহার করা উচিত?</span>
+            <span class="answer">উত্তর: AND ফাংশন।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="question">১০. প্রশ্ন: =OR(5>10, 2<5)—এর ফলাফল কী আসবে?</span>
+            <span class="answer">উত্তর: TRUE।</span>
+        </div>
+    </div>
+
+    <div style="text-align: center;">
+        <a href="https://drive.google.com/uc?export=download&id=1fm-6N_Exg67avOmJnpeEVYJPjHCjBaCl" class="btn-download">
+            <i class="fas fa-file-pdf"></i> অধ্যায় ৮ এর PDF নোট নামিয়ে নিন
+        </a>
+    </div>
+
+</div>
+
+<footer>
+    <strong>Super Success Computer Education Center</strong><br>
+    বিপুল সরকার | ডিজিটাল এক্সেল কোর্স ২০২৬
+</footer>
+
+</body>
+</html>

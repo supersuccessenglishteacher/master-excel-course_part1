@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel Chapter 4 - SSCEC</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --excel-green: #217346;
+            --excel-light: #e9f5ee;
+            --accent: #d35400;
+            --text-dark: #2c3e50;
+        }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #fdfdfd; color: var(--text-dark); line-height: 1.6; margin: 0; padding: 0; }
+        
+        /* Header */
+        header { background: var(--excel-green); color: white; padding: 40px 20px; text-align: center; border-bottom: 5px solid #f1c40f; }
+        header h1 { margin: 0; font-size: 1.8rem; }
+
+        .container { max-width: 900px; margin: 30px auto; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+
+        h2 { color: var(--excel-green); border-bottom: 2px solid #ddd; padding-bottom: 10px; margin-top: 35px; display: flex; align-items: center; gap: 10px; }
+        
+        /* Tables */
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; background: white; }
+        th { background: var(--excel-green); color: white; padding: 15px; text-align: left; }
+        td { border: 1px solid #eee; padding: 15px; text-align: center; }
+        tr:nth-child(even) { background: #f9f9f9; }
+
+        /* Highlight Boxes */
+        .warning-box { background: #fff3cd; border-left: 5px solid #ffc107; color: #856404; padding: 20px; border-radius: 5px; margin: 20px 0; }
+        .info-box { background: var(--excel-light); border-left: 5px solid var(--excel-green); padding: 20px; border-radius: 5px; margin: 20px 0; }
+        
+        /* Formula Code Style */
+        .formula-tag { background: #eee; padding: 2px 8px; border-radius: 4px; font-family: monospace; font-weight: bold; color: #c0392b; }
+
+        /* Quiz Style */
+        .quiz-section { background: #2c3e50; color: white; padding: 35px; border-radius: 15px; margin-top: 50px; }
+        .quiz-item { margin-bottom: 20px; border-bottom: 1px solid #3e5871; padding-bottom: 15px; }
+        .question { color: #f1c40f; font-weight: bold; display: block; margin-bottom: 5px; }
+        .answer { color: #ecf0f1; font-style: italic; }
+
+        /* Download Link */
+        .download-btn {
+            display: inline-block; background: var(--excel-green); color: white; padding: 15px 35px; 
+            text-decoration: none; border-radius: 50px; font-weight: bold; margin: 30px 0;
+            transition: 0.3s; box-shadow: 0 4px 15px rgba(33, 115, 70, 0.3);
+        }
+        .download-btn:hover { background: #185a37; transform: translateY(-3px); }
+
+        footer { text-align: center; padding: 40px; color: #888; border-top: 1px solid #eee; }
+
+        @media (max-width: 600px) { .container { padding: 20px; margin: 10px; } }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1><i class="fas fa-calculator"></i> অধ্যায় ৪: বেসিক ফর্মুলা (Basic Formulas)</h1>
+</header>
+
+<div class="container">
+    
+    <h2><i class="fas fa-info-circle"></i> ফর্মুলা (Formula) কী?</h2>
+    <p>এক্সেলে হিসাব করার জন্য আমরা যে গাণিতিক নিয়ম ব্যবহার করি তাকেই ফর্মুলা বলে।</p>
+    
+    <div class="warning-box">
+        <strong>⚠️ সবচেয়ে গুরুত্বপূর্ণ নিয়ম:</strong> এক্সেলে প্রতিটি ফর্মুলা অবশ্যই <strong>= (Equal Sign)</strong> দিয়ে শুরু করতে হবে। = না দিলে এক্সেল সেটাকে সাধারণ লেখা (Text) মনে করবে।
+    </div>
+
+    <h2><i class="fas fa-plus-minus"></i> মৌলিক গাণিতিক চিহ্নসমূহ</h2>
+    <p>এক্সেলে হিসাবের চিহ্নগুলো সাধারণ গণিতের চেয়ে কিছুটা আলাদা হয়:</p>
+    <table>
+        <thead>
+            <tr>
+                <th>কাজ</th>
+                <th>চিহ্ন</th>
+                <th>উদাহরণ</th>
+                <th>ফলাফল</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>যোগ</td>
+                <td><strong>+</strong></td>
+                <td>=10+5</td>
+                <td>15</td>
+            </tr>
+            <tr>
+                <td>বিয়োগ</td>
+                <td><strong>-</strong></td>
+                <td>=20-8</td>
+                <td>12</td>
+            </tr>
+            <tr>
+                <td>গুণ</td>
+                <td><strong>*</strong></td>
+                <td>=6*4</td>
+                <td>24</td>
+            </tr>
+            <tr>
+                <td>ভাগ</td>
+                <td><strong>/</strong></td>
+                <td>=50/5</td>
+                <td>10</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2><i class="fas fa-mouse-pointer"></i> সেল রেফারেন্স (Cell Reference) দিয়ে হিসাব</h2>
+    <p>সরাসরি সংখ্যা লিখে হিসাব করার চেয়ে Cell Address (যেমন: A1, B1) ব্যবহার করা বেশি বুদ্ধিমানের কাজ। কেন? কারণ সেলের ভেতর সংখ্যা পরিবর্তন করলে ফলাফল অটোমেটিক আপডেট হয়ে যায়।</p>
+    
+    <div class="info-box">
+        <p><strong>উদাহরণ:</strong> ধরুন, সেলে A1 = 500 এবং B1 = 200 আছে।</p>
+        <p>আপনি যদি C1 সেলে লিখেন: <span class="formula-tag">=A1-B1</span></p>
+        <p>ফলাফল আসবে: <strong>300</strong></p>
+        <p>এখন যদি আপনি A1 এর সংখ্যা বদলে 600 করেন, তবে C1 নিজে নিজেই <strong>400</strong> হয়ে যাবে!</p>
+    </div>
+
+    <h2><i class="fas fa-percent"></i> পার্সেন্টেজ বা শতকরা (%) হিসাব</h2>
+    <p>ডিসকাউন্ট বা ভ্যাট বের করার জন্য এটি খুব দরকারি।</p>
+    <ul>
+        <li><strong>নিয়ম:</strong> =সেলের নাম * কত পার্সেন্ট</li>
+        <li><strong>উদাহরণ:</strong> ১০০০ টাকার ১০% ডিসকাউন্ট বের করতে লিখুন: <span class="formula-tag">=A1*10%</span></li>
+    </ul>
+
+    <div class="quiz-section">
+        <h2><i class="fas fa-question-circle"></i> বেসিক ফর্মুলা কুইজ (অধ্যায় ৪)</h2>
+        
+        <div class="quiz-item">
+            <span class="question">১. প্রশ্ন: এক্সেলে কোনো ফর্মুলা শুরু করার জন্য বাধ্যতামূলক চিহ্ন কোনটি?</span>
+            <span class="answer">উত্তর: = (সমান চিহ্ন)।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="question">২. প্রশ্ন: এক্সেলে গুণের জন্য কোন চিহ্নটি ব্যবহার করা হয়?</span>
+            <span class="answer">উত্তর: * (Asterisk বা তারকা চিহ্ন)।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="question">৩. প্রশ্ন: সরাসরি সংখ্যা দিয়ে হিসাব করার চেয়ে 'Cell Reference' দিয়ে হিসাব করার বড় সুবিধা কী?</span>
+            <span class="answer">উত্তর: সেলের তথ্য পরিবর্তন করলে ফলাফল Automatic Update বা নিজে নিজে পরিবর্তন হয়ে যায়।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="question">৪. প্রশ্ন: ২৫০০ টাকার ৫% বের করার সঠিক ফর্মুলা কোনটি হবে (যদি ২৫০০ সংখ্যাটি A1 সেলে থাকে)?</span>
+            <span class="answer">উত্তর: =A1*5%</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="question">৫. প্রশ্ন: ভাগের জন্য এক্সেলে কোন চিহ্নটি ব্যবহার করা হয়?</span>
+            <span class="answer">উত্তর: / (Forward Slash)।</span>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 40px;">
+        <a href="https://drive.google.com/uc?export=download&id=1U2zSzs7oby6iczhQAEy9RHbOKzhSaPH8" class="download-btn">
+            <i class="fas fa-file-download"></i> অধ্যায় ৪ এর PDF ডাউনলোড করুন
+        </a>
+    </div>
+
+</div>
+
+<footer>
+    <strong>Super Success Computer Education Center</strong><br>
+    © 2026 Bipul Sarkar | Digital Classroom
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel Chapter 11 - SSCEC</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --level2: #f39c12;
+            --excel-green: #217346;
+            --dark-blue: #2c3e50;
+            --bg-light: #f4f7f6;
+        }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--bg-light); color: #333; line-height: 1.6; margin: 0; padding: 0; }
+        
+        header { background: linear-gradient(135deg, #27ae60, var(--excel-green)); color: white; padding: 50px 20px; text-align: center; border-bottom: 5px solid var(--level2); }
+        
+        .container { max-width: 900px; margin: 30px auto; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+
+        h2 { color: var(--excel-green); border-bottom: 2px solid #eee; padding-bottom: 10px; margin-top: 35px; display: flex; align-items: center; gap: 10px; }
+        
+        .box { background: #fffcf0; border: 1px solid #f9ebcc; padding: 20px; border-radius: 12px; margin: 20px 0; border-left: 5px solid var(--level2); }
+        
+        .shortcut { background: #e74c3c; color: white; padding: 3px 10px; border-radius: 5px; font-weight: bold; font-family: monospace; }
+
+        /* Quiz Styling */
+        .quiz-section { background: var(--dark-blue); color: white; padding: 35px; border-radius: 20px; margin-top: 50px; }
+        .quiz-item { border-bottom: 1px solid rgba(255,255,255,0.1); padding: 15px 0; }
+        .q { color: #f1c40f; font-weight: bold; display: block; margin-bottom: 5px; }
+        .a { color: #ecf0f1; font-style: italic; }
+
+        /* Download Button */
+        .dl-container { text-align: center; margin-top: 40px; }
+        .dl-btn {
+            display: inline-block; background: var(--excel-green); color: white; padding: 16px 45px; 
+            text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 1.1rem;
+            transition: 0.3s; box-shadow: 0 5px 15px rgba(33, 115, 70, 0.4);
+        }
+        .dl-btn:hover { background: #185a37; transform: translateY(-3px); }
+
+        footer { text-align: center; padding: 40px; color: #888; border-top: 1px solid #eee; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1><i class="fas fa-filter"></i> অধ্যায় ১১: ডাটা সর্টিং ও ফিল্টারিং</h1>
+    <p>বিশাল ডাটাবেস থেকে সঠিক তথ্য খুঁজে বের করার কৌশল</p>
+</header>
+
+<div class="container">
+    
+    <p>ডাটা এন্ট্রি করার পর প্রধান কাজ হলো সেই ডাটাকে নিজের প্রয়োজনমতো সাজানো এবং নির্দিষ্ট তথ্য খুঁজে বের করা।</p>
+
+    <h2><i class="fas fa-sort-alpha-down"></i> ১. সর্টিং (Sorting): তথ্য সাজানো</h2>
+    <div class="box">
+        <p>সর্টিং মানে হলো ডাটাকে একটি নির্দিষ্ট ক্রমে সাজানো।</p>
+        <ul>
+            <li><strong>A to Z (Ascending):</strong> ছোট থেকে বড় (১ থেকে ১০০, বা A থেকে Z)।</li>
+            <li><strong>Z to A (Descending):</strong> বড় থেকে ছোট (১০০ থেকে ১, বা Z থেকে A)।</li>
+        </ul>
+        <p><strong>ব্যবহার:</strong> রোল নম্বর অনুযায়ী সাজানো বা সবথেকে বেশি নম্বর পাওয়া ছাত্রকে সবার উপরে রাখা।</p>
+    </div>
+
+    <h2><i class="fas fa-funnel-dollar"></i> ২. ফিল্টার (Filtering): তথ্য ছেঁকে বের করা</h2>
+    <div class="box" style="border-left-color: #2980b9;">
+        <p>ফিল্টার মানে হলো অপ্রয়োজনীয় ডাটা লুকিয়ে রেখে শুধুমাত্র প্রয়োজনীয় ডাটা স্ক্রিনে দেখানো।</p>
+        <p><strong>পদ্ধতি:</strong> Header সিলেক্ট করে <strong>Data</strong> ট্যাব থেকে <strong>Filter</strong>-এ ক্লিক করুন।</p>
+        <p><strong>শর্টকাট:</strong> ফিল্টার দ্রুত চালু করতে কিবোর্ডে <span class="shortcut">Ctrl + Shift + L</span> চাপুন।</p>
+    </div>
+
+    <h2><i class="fas fa-lightbulb"></i> ৩. অ্যাডভান্সড টিপস: কালার সর্টিং</h2>
+    <div class="box" style="border-left-color: #27ae60;">
+        <p>ঘরগুলো যদি কালার করা থাকে, তবে আপনি <strong>Sort by Color</strong> ব্যবহার করে নির্দিষ্ট রঙের ঘরগুলোকে সবার উপরে নিয়ে আসতে পারেন। এটি জরুরি কাজগুলো আলাদা করতে খুব সাহায্য করে।</p>
+    </div>
+
+    <div class="quiz-section">
+        <h2 style="color: #f1c40f; border: none; margin-top: 0;">সর্টিং ও ফিল্টারিং কুইজ (১০টি প্রশ্ন)</h2>
+        
+        <div class="quiz-item"><span class="q">১. ডাটা ছোট থেকে বড় ক্রমে সাজানোকে কী বলা হয়?</span><span class="a">উত্তর: Sort A to Z বা Ascending Sort।</span></div>
+        <div class="quiz-item"><span class="q">২. এক্সেলের কোন ট্যাবে 'Sort & Filter' অপশনটি পাওয়া যায়?</span><span class="a">উত্তর: Home এবং Data ট্যাব।</span></div>
+        <div class="quiz-item"><span class="q">৩. ফিল্টার চালু করলে শিরোনামে কোন চিহ্নটি আসে?</span><span class="a">উত্তর: একটি ছোট ড্রপ-ডাউন তীর চিহ্ন।</span></div>
+        <div class="quiz-item"><span class="q">৪. নির্দিষ্ট শর্ত অনুযায়ী ডাটা লুকিয়ে রাখা বা দেখানোর পদ্ধতি কোনটি?</span><span class="a">উত্তর: Filtering।</span></div>
+        <div class="quiz-item"><span class="q">৫. Z to A ক্রমে সাজালে 'Bipul' এবং 'Amit'-এর মধ্যে কে উপরে থাকবে?</span><span class="a">উত্তর: Bipul।</span></div>
+        <div class="quiz-item"><span class="q">৬. একসাথে একাধিক কলামের ওপর ভিত্তি করে সর্টিং করাকে কী বলে?</span><span class="a">উত্তর: Custom Sort।</span></div>
+        <div class="quiz-item"><span class="q">৭. ফিল্টার করার পর বাকি ডাটাগুলো কি ডিলিট হয়ে যায়?</span><span class="a">উত্তর: না, সেগুলো সাময়িকভাবে লুকিয়ে (Hide) থাকে।</span></div>
+        <div class="quiz-item"><span class="q">৮. তারিখের ক্ষেত্রে 'Sort A to Z' করলে কোন তারিখটি আগে আসবে?</span><span class="a">উত্তর: সবচেয়ে পুরনো তারিখটি।</span></div>
+        <div class="quiz-item"><span class="q">৯. ফিল্টার দ্রুত চালু করার কিবোর্ড শর্টকাট কোনটি?</span><span class="a">উত্তর: Ctrl + Shift + L।</span></div>
+        <div class="quiz-item"><span class="q">১০. কোন ছাত্র সবচেয়ে বেশি মার্কস পেয়েছে দেখতে কোন সর্টিং করবেন?</span><span class="a">উত্তর: Largest to Smallest।</span></div>
+    </div>
+
+    <div class="dl-container">
+        <a href="https://drive.google.com/uc?export=download&id=1uxUCF5r3tyWV5LM0ZQz08q-bHfovQzfw" class="dl-btn">
+            <i class="fas fa-file-pdf"></i> অধ্যায় ১১ এর PDF ডাউনলোড করুন
+        </a>
+    </div>
+
+</div>
+
+<footer>
+    <strong>Super Success Computer Education Center</strong><br>
+    বিপুল সরকার | ডিজিটাল এক্সেল কোর্স ২০২৬
+</footer>
+
+</body>
+</html>

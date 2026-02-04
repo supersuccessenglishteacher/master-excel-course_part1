@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel Chapter 10 - SSCEC</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --level2: #f39c12;
+            --excel-green: #217346;
+            --dark-blue: #2c3e50;
+            --bg-color: #f8f9fa;
+        }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--bg-color); color: #333; line-height: 1.6; margin: 0; padding: 0; }
+        
+        header { background: linear-gradient(135deg, #e67e22, #f39c12); color: white; padding: 50px 20px; text-align: center; border-bottom: 5px solid var(--dark-blue); }
+        
+        .container { max-width: 900px; margin: 30px auto; background: white; padding: 40px; border-radius: 25px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+
+        h2 { color: var(--excel-green); border-bottom: 2px solid #eee; padding-bottom: 10px; margin-top: 35px; }
+        
+        .info-card { background: #fffdf5; border: 1px solid #f9ebcc; padding: 25px; border-radius: 15px; margin: 20px 0; border-left: 6px solid var(--level2); }
+        
+        /* Formula Styling */
+        .syntax { background: #2c3e50; color: #f1c40f; padding: 15px; border-radius: 10px; font-family: 'Courier New', monospace; display: block; margin: 10px 0; font-size: 1.1rem; }
+        .unit-badge { background: #e8f5e9; color: #1b5e20; padding: 3px 10px; border-radius: 5px; font-weight: bold; }
+
+        /* Quiz Styling */
+        .quiz-box { background: var(--dark-blue); color: white; padding: 35px; border-radius: 20px; margin-top: 50px; }
+        .quiz-item { border-bottom: 1px solid rgba(255,255,255,0.1); padding: 18px 0; }
+        .q-text { color: #f1c40f; font-weight: bold; display: block; font-size: 1.05rem; margin-bottom: 5px; }
+        .a-text { color: #ecf0f1; font-style: italic; opacity: 0.9; }
+
+        /* Download Section */
+        .dl-section { text-align: center; margin-top: 40px; }
+        .dl-btn {
+            display: inline-block; background: var(--excel-green); color: white; padding: 18px 45px; 
+            text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 1.1rem;
+            transition: 0.3s; box-shadow: 0 5px 20px rgba(33, 115, 70, 0.3);
+        }
+        .dl-btn:hover { background: #185a37; transform: translateY(-3px) scale(1.02); }
+
+        footer { text-align: center; padding: 40px; color: #888; border-top: 1px solid #eee; margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1><i class="fas fa-calendar-alt"></i> অধ্যায় ১০: ডেট এবং টাইম ফাংশন</h1>
+    <p>Excel-এ সময়ের সঠিক হিসাব রাখার জাদুকরী কৌশল</p>
+</header>
+
+<div class="container">
+    
+    <p>এক্সেলে সময়ের হিসাব রাখা এবং তারিখ নিয়ে কাজ করার জন্য এই ফাংশনগুলো অত্যন্ত কার্যকর।</p>
+
+    <h2>১. বর্তমান সময় ও তারিখ (Current Date & Time)</h2>
+    <div class="info-card">
+        <p><i class="fas fa-calendar-check"></i> <strong>TODAY():</strong> এটি প্রতিদিন ফাইল খোলার সাথে সাথে অটোমেটিক আজকের তারিখ আপডেট করে দেয়।</p>
+        <p><i class="fas fa-clock"></i> <strong>NOW():</strong> তারিখের পাশাপাশি যদি আপনার বর্তমান সময়েরও (ঘন্টা ও মিনিট) প্রয়োজন হয়।</p>
+        <span class="syntax">=TODAY() <span style="color:#aaa; font-size: 0.8rem;">// কোন ইনপুট লাগে না</span></span>
+    </div>
+
+    <h2>২. বয়স বা পার্থক্য বের করা (DATEDIF)</h2>
+    <div class="info-card" style="border-left-color: #2980b9;">
+        <p>এটি একটি স্পেশাল ফাংশন যা বয়স বা দুটি তারিখের পার্থক্য বের করতে ব্যবহৃত হয়।</p>
+        <span class="syntax">=DATEDIF(Start_Date, End_Date, "Unit")</span>
+        <p><strong>ইউনাইটসমূহ:</strong></p>
+        <ul>
+            <li><span class="unit-badge">"Y"</span> দিলে বছরের পার্থক্য দেখাবে।</li>
+            <li><span class="unit-badge">"M"</span> দিলে মাসের পার্থক্য দেখাবে।</li>
+            <li><span class="unit-badge">"D"</span> দিলে দিনের পার্থক্য দেখাবে।</li>
+        </ul>
+    </div>
+
+    <h2>৩. তারিখ ভেঙে ফেলা (Extracting Date)</h2>
+    <div class="info-card" style="border-left-color: #27ae60;">
+        <p>পুরো তারিখ থেকে নির্দিষ্ট অংশ বের করে আনার ফাংশন:</p>
+        <ul>
+            <li><strong>YEAR:</strong> তারিখ থেকে বছর বের করে।</li>
+            <li><strong>MONTH:</strong> তারিখ থেকে মাসের নম্বর (১-১২) বের করে।</li>
+            <li><strong>DAY:</strong> তারিখ থেকে দিন বের করে।</li>
+        </ul>
+        <span class="syntax">=YEAR("12-05-2024") 👉 ফলাফল: 2024</span>
+    </div>
+
+    <div class="quiz-box">
+        <h2 style="color: #f1c40f; border: none; margin-top: 0;"><i class="fas fa-tasks"></i> লার্নিং কুইজ (অধ্যায় ১০)</h2>
+        
+        <div class="quiz-item">
+            <span class="q-text">১. প্রতিদিন ফাইল খোলার সাথে সাথে আজকের তারিখ আপডেট করতে কোনটি ব্যবহার করবেন?</span>
+            <span class="a-text">উত্তর: =TODAY()।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="q-text">২. TODAY() এবং NOW() ফাংশনের মধ্যে প্রধান পার্থক্য কী?</span>
+            <span class="a-text">উত্তর: TODAY() শুধু তারিখ দেখায়, আর NOW() তারিখ ও সময়—দুটোই দেখায়।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="q-text">৩. DATEDIF ফাংশনে বছর বের করার জন্য ইউনিটে (Unit) কী লিখতে হয়?</span>
+            <span class="a-text">উত্তর: "Y"।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="q-text">৪. =YEAR("12-05-2024")—এর ফলাফল কী আসবে?</span>
+            <span class="a-text">উত্তর: 2024।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="q-text">৫. বয়স বের করার সময় সব সময় কোন তারিখটি শেষে রাখা উচিত?</span>
+            <span class="a-text">উত্তর: আজকের তারিখ বা শেষের তারিখটি (সাধারণত TODAY() ব্যবহার করা হয়)।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="q-text">৬. DATEDIF ফাংশনে মাস বের করার জন্য ইউনিটে কী লিখতে হয়?</span>
+            <span class="a-text">উত্তর: "M"।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="q-text">৭. আজকের তারিখ দ্রুত বসানোর শর্টকাট কি কোনটি?</span>
+            <span class="a-text">উত্তর: Ctrl + ; (সেমিকোলন)।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="q-text">৮. =MONTH("15-08-2025") লিখলে ফলাফল কত আসবে?</span>
+            <span class="a-text">উত্তর: 8।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="q-text">৯. যদি ব্র্যাকেটের ভেতর কিছু না থাকে (=TODAY()), তবে কি ফাংশনটি কাজ করবে?</span>
+            <span class="a-text">উত্তর: হ্যাঁ, এটি কাজ করবে।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="q-text">১০. কর্মীর সার্ভিসের মেয়াদ কত দিন হয়েছে তা বের করতে কোন ইউনিট ব্যবহার করবেন?</span>
+            <span class="a-text">উত্তর: "D"।</span>
+        </div>
+    </div>
+
+    <div class="dl-section">
+        <a href="https://drive.google.com/uc?export=download&id=1N_KgJZpJRr30cx_pm-wYbcPqvR0ZckZ_" class="dl-btn">
+            <i class="fas fa-file-pdf"></i> অধ্যায় ১০ এর PDF ডাউনলোড করুন
+        </a>
+    </div>
+
+</div>
+
+<footer>
+    <strong>Super Success Computer Education Center</strong><br>
+    বিপুল সরকার | 📞 8017247298
+</footer>
+
+</body>
+</html>

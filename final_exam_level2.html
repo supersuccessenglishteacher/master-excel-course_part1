@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 2 Final Quiz - SSCEC</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --level2-color: #f39c12;
+            --success-green: #2ecc71;
+            --dark-blue: #2c3e50;
+        }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f0f2f5; color: #333; margin: 0; padding: 0; }
+        
+        header { background: linear-gradient(135deg, var(--level2-color), #d35400); color: white; padding: 60px 20px; text-align: center; }
+        
+        .container { max-width: 900px; margin: -40px auto 40px; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.2); }
+
+        .quiz-intro { text-align: center; margin-bottom: 40px; border-bottom: 2px solid #eee; padding-bottom: 20px; }
+        
+        .question-card { background: #fff; border: 1px solid #e1e8ed; padding: 25px; border-radius: 12px; margin-bottom: 20px; transition: 0.3s; border-left: 5px solid var(--level2-color); }
+        .question-card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        
+        .q-num { background: var(--dark-blue); color: white; width: 30px; height: 30px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; margin-right: 10px; font-size: 0.9rem; }
+        .q-text { font-size: 1.1rem; font-weight: bold; color: var(--dark-blue); }
+        
+        .options { margin-top: 15px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .opt { background: #f8f9fa; padding: 10px; border-radius: 6px; border: 1px solid #dee2e6; cursor: pointer; }
+        
+        .ans-toggle { margin-top: 15px; color: var(--success-green); font-weight: bold; cursor: pointer; display: inline-block; }
+        .ans-text { display: none; background: #e8f5e9; padding: 10px; border-radius: 6px; margin-top: 10px; border-left: 4px solid var(--success-green); }
+
+        .cert-info { background: #fff9f0; border: 2px dashed var(--level2-color); padding: 20px; border-radius: 15px; text-align: center; margin-top: 40px; }
+
+        footer { text-align: center; padding: 40px; color: #777; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1><i class="fas fa-user-graduate"></i> Level 2: Final Quiz</h1>
+    <p>চ্যাপ্টার ৭ থেকে ১৪ এর ওপর ভিত্তি করে মেগা মূল্যায়ন</p>
+</header>
+
+<div class="container">
+    <div class="quiz-intro">
+        <h2>আপনার দক্ষতা যাচাই করুন</h2>
+        <p>নিচের ২০টি গুরুত্বপূর্ণ প্রশ্নের উত্তর দিন এবং দেখুন আপনি লেভেল ২-এ কতটা দক্ষ হয়ে উঠেছেন।</p>
+    </div>
+
+    <div class="question-card">
+        <span class="q-num">১</span>
+        <span class="q-text">কোন সেলে ক্লিক করে F4 চাপলে কী হয়?</span>
+        <div class="options">
+            <div class="opt">সেল ডিলিট হয়</div>
+            <div class="opt">সেল রেফারেন্স লক (Absolute) হয়</div>
+        </div>
+        <div class="ans-toggle" onclick="this.nextElementSibling.style.display='block'">উত্তর দেখুন...</div>
+        <div class="ans-text">উত্তর: সেল রেফারেন্স লক বা Absolute হয় (যেমন: $A$1)।</div>
+    </div>
+
+    <div class="question-card">
+        <span class="q-num">২</span>
+        <span class="q-text">=IF(A1>=33, "Pass", "Fail") — এখানে A1 এর মান ৩৩ হলে ফলাফল কী?</span>
+        <div class="options">
+            <div class="opt">Pass</div>
+            <div class="opt">Fail</div>
+        </div>
+        <div class="ans-toggle" onclick="this.nextElementSibling.style.display='block'">উত্তর দেখুন...</div>
+        <div class="ans-text">উত্তর: Pass (যেহেতু সমান বা বড় শর্ত দেওয়া আছে)।</div>
+    </div>
+
+    <div class="question-card">
+        <span class="q-num">৩</span>
+        <span class="q-text">একাধিক শর্তের সবগুলো সত্য হলে কোন ফাংশনটি TRUE ফলাফল দেয়?</span>
+        <div class="options">
+            <div class="opt">OR</div>
+            <div class="opt">AND</div>
+        </div>
+        <div class="ans-toggle" onclick="this.nextElementSibling.style.display='block'">উত্তর দেখুন...</div>
+        <div class="ans-text">উত্তর: AND ফাংশন।</div>
+    </div>
+
+    <div class="question-card">
+        <span class="q-num">৪</span>
+        <span class="q-text">"bipul sarkar" কে "Bipul Sarkar" করতে কোন ফাংশনটি ব্যবহার করবেন?</span>
+        <div class="options">
+            <div class="opt">UPPER</div>
+            <div class="opt">PROPER</div>
+        </div>
+        <div class="ans-toggle" onclick="this.nextElementSibling.style.display='block'">উত্তর দেখুন...</div>
+        <div class="ans-text">উত্তর: PROPER ফাংশন।</div>
+    </div>
+
+    <div class="question-card">
+        <span class="q-num">৫</span>
+        <span class="q-text">=LEN("Excel 2026") এর ফলাফল কত আসবে?</span>
+        <div class="options">
+            <div class="opt">৯</div>
+            <div class="opt">১০</div>
+        </div>
+        <div class="ans-toggle" onclick="this.nextElementSibling.style.display='block'">উত্তর দেখুন...</div>
+        <div class="ans-text">উত্তর: ১০ (স্পেসসহ গণনা করা হয়)।</div>
+    </div>
+
+    <div class="question-card">
+        <span class="q-num">৬</span>
+        <span class="q-text">আজকের তারিখ অটোমেটিক আপডেট করতে কোন ফাংশন ব্যবহার করা হয়?</span>
+        <div class="options">
+            <div class="opt">=TODAY()</div>
+            <div class="opt">=DATE()</div>
+        </div>
+        <div class="ans-toggle" onclick="this.nextElementSibling.style.display='block'">উত্তর দেখুন...</div>
+        <div class="ans-text">উত্তর: =TODAY()।</div>
+    </div>
+
+    <div class="question-card">
+        <span class="q-num">৭</span>
+        <span class="q-text">DATEDIF ফাংশনে "Y" ইউনিট দিয়ে কী বের করা হয়?</span>
+        <div class="options">
+            <div class="opt">মাস (Month)</div>
+            <div class="opt">বছর (Year)</div>
+        </div>
+        <div class="ans-toggle" onclick="this.nextElementSibling.style.display='block'">উত্তর দেখুন...</div>
+        <div class="ans-text">উত্তর: বছর (Year)।</div>
+    </div>
+
+    <div class="question-card">
+        <span class="q-num">৮</span>
+        <span class="q-text">ফিল্টার (Filter) চালু করার কিবোর্ড শর্টকাট কী?</span>
+        <div class="options">
+            <div class="opt">Ctrl + F</div>
+            <div class="opt">Ctrl + Shift + L</div>
+        </div>
+        <div class="ans-toggle" onclick="this.nextElementSibling.style.display='block'">উত্তর দেখুন...</div>
+        <div class="ans-text">উত্তর: Ctrl + Shift + L।</div>
+    </div>
+
+    <div class="question-card">
+        <span class="q-num">৯</span>
+        <span class="q-text">কন্ডিশনাল ফরম্যাটিং-এ 'Duplicate Values' দিয়ে কী করা হয়?</span>
+        <div class="options">
+            <div class="opt">একই তথ্য বারবার থাকলে তা হাইলাইট করে</div>
+            <div class="opt">তথ্য ডিলিট করে দেয়</div>
+        </div>
+        <div class="ans-toggle" onclick="this.nextElementSibling.style.display='block'">উত্তর দেখুন...</div>
+        <div class="ans-text">উত্তর: একই তথ্য বারবার থাকলে তা হাইলাইট করে।</div>
+    </div>
+
+    <div class="question-card">
+        <span class="q-num">১০</span>
+        <span class="q-text">ড্রপ-ডাউন লিস্ট (Drop-down List) তৈরি করতে ডাটা ভ্যালিডেশনের কোন অপশনটি নিতে হয়?</span>
+        <div class="options">
+            <div class="opt">List</div>
+            <div class="opt">Whole Number</div>
+        </div>
+        <div class="ans-toggle" onclick="this.nextElementSibling.style.display='block'">উত্তর দেখুন...</div>
+        <div class="ans-text">উত্তর: List।</div>
+    </div>
+
+    <div class="question-card">
+        <span class="q-num">১১</span>
+        <span class="q-text">স্মার্ট টেবিল তৈরি করার শর্টকাট কোনটি?</span>
+        <div class="options">
+            <div class="opt">Ctrl + T</div>
+            <div class="opt">Ctrl + S</div>
+        </div>
+        <div class="ans-toggle" onclick="this.nextElementSibling.style.display='block'">উত্তর দেখুন...</div>
+        <div class="ans-text">উত্তর: Ctrl + T।</div>
+    </div>
+
+    <div class="question-card">
+        <span class="q-num">১২</span>
+        <span class="q-text">টেবিল ফর্মুলায় [@ColumnName] বলতে কী বোঝায়?</span>
+        <div class="options">
+            <div class="opt">সম্পূর্ণ কলাম</div>
+            <div class="opt">বর্তমান রো (Current Row)</div>
+        </div>
+        <div class="ans-toggle" onclick="this.nextElementSibling.style.display='block'">উত্তর দেখুন...</div>
+        <div class="ans-text">উত্তর: বর্তমান রো (Current Row)।</div>
+    </div>
+
+    <div class="cert-info">
+        <h3>🎉 অভিনন্দন!</h3>
+        <p>আপনি যদি এই সবগুলো প্রশ্নের সঠিক উত্তর দিতে পারেন, তবে আপনি <strong>LEVEL 3: Advanced Excel</strong>-এ যাওয়ার জন্য সম্পূর্ণ প্রস্তুত!</p>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px;">
+        <p>লেভেল ২ এর পূর্ণাঙ্গ প্র্যাকটিস ফাইল নামাতে নিচের লিঙ্কে ক্লিক করুন।</p>
+        <a href="https://drive.google.com/file/d/1DjgGVLLwSSxxNnh7koVBf7p6NO2bMBzy/view?usp=drive_link" target="_blank" style="background: var(--dark-blue); color: white; padding: 15px 30px; text-decoration: none; border-radius: 50px; font-weight: bold;">
+            <i class="fas fa-download"></i> Level 2 Practice File
+        </a>
+    </div>
+
+</div>
+
+<footer>
+    <strong>Super Success Computer Education Center</strong><br>
+    বিপুল সরকার | ডিজিটাল এক্সেল লার্নিং ২০২৬
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel Chapter 14 - SSCEC</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --level2: #f39c12;
+            --excel-green: #217346;
+            --table-blue: #2b5797;
+            --dark-blue: #2c3e50;
+        }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f4f7f9; color: #333; line-height: 1.6; margin: 0; padding: 0; }
+        
+        header { background: linear-gradient(135deg, var(--table-blue), #1e3a5f); color: white; padding: 55px 20px; text-align: center; border-bottom: 5px solid var(--level2); }
+        
+        .container { max-width: 900px; margin: 30px auto; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 12px 40px rgba(0,0,0,0.1); }
+
+        h2 { color: var(--table-blue); border-left: 5px solid var(--level2); padding-left: 15px; margin-top: 35px; }
+        
+        .smart-card { background: #f0f7ff; border: 1px solid #d1e3ff; padding: 25px; border-radius: 15px; margin: 20px 0; }
+        
+        .shortcut-key { background: #2c3e50; color: #f1c40f; padding: 4px 10px; border-radius: 5px; font-weight: bold; font-family: monospace; }
+        
+        .formula-box { background: #eef2f7; border-left: 4px solid var(--table-blue); padding: 15px; font-family: 'Courier New', monospace; font-weight: bold; color: #d63031; margin: 10px 0; }
+
+        /* Quiz Styling */
+        .quiz-wrap { background: var(--dark-blue); color: white; padding: 35px; border-radius: 20px; margin-top: 50px; }
+        .quiz-item { border-bottom: 1px solid rgba(255,255,255,0.1); padding: 18px 0; }
+        .question { color: #f1c40f; font-weight: bold; display: block; margin-bottom: 5px; }
+        .answer { color: #ecf0f1; font-style: italic; opacity: 0.9; }
+
+        /* Download Button */
+        .btn-container { text-align: center; margin-top: 45px; }
+        .btn-dl {
+            display: inline-block; background: var(--excel-green); color: white; padding: 18px 45px; 
+            text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 1.1rem;
+            transition: 0.3s; box-shadow: 0 5px 20px rgba(33, 115, 70, 0.3);
+        }
+        .btn-dl:hover { background: #185a37; transform: translateY(-3px); box-shadow: 0 8px 25px rgba(33, 115, 70, 0.4); }
+
+        footer { text-align: center; padding: 40px; color: #888; border-top: 1px solid #eee; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1><i class="fas fa-table"></i> অধ্যায় ১৪: স্মার্ট টেবিল (Excel Tables)</h1>
+    <p>সাধারণ ডাটাকে বুদ্ধিমান ও স্বয়ংক্রিয় টেবিলে রূপান্তর করুন</p>
+</header>
+
+<div class="container">
+    
+    <p style="font-size: 1.1rem;">সাধারণ ডাটা রেঞ্জ এবং স্মার্ট টেবিলের মধ্যে মূল পার্থক্য হলো—টেবিল স্বয়ংক্রিয়ভাবে নিজের সীমানা (Range) বাড়াতে পারে এবং ফর্মুলা মনে রাখতে পারে।</p>
+
+    <h2>১. টেবিল তৈরি করা (Convert to Table)</h2>
+    
+    <div class="smart-card">
+        <p>যেকোনো অগোছালো ডাটাকে এক ক্লিকে টেবিলে রূপান্তর করা যায়।</p>
+        <p><strong>শর্টকাট:</strong> ডাটা সিলেক্ট করে <span class="shortcut-key">Ctrl + T</span> চাপুন।</p>
+        <p><strong>সুবিধা:</strong> টেবিল তৈরি হওয়ার সাথে সাথে প্রফেশনাল ডিজাইন চলে আসে এবং প্রতিটি হেডারে অটোমেটিক ফিল্টার বাটন যুক্ত হয়।</p>
+    </div>
+
+    <h2>২. স্ট্রাকচারড রেফারেন্স (Structured References)</h2>
+    <div class="smart-card" style="border-left-color: #27ae60; background: #f3faf5;">
+        <p>টেবিলের সবচেয়ে বড় সুবিধা হলো এটি সেলের ঠিকানা (A2, B2) এর বদলে কলামের নাম ব্যবহার করে।</p>
+        <div class="formula-box">= [ @Qty ] * [ @Rate ]</div>
+        <p>এটি মানুষের পড়ার জন্য অনেক সহজ। আপনি যদি নতুন একটি রো যোগ করেন, টেবিল নিজে থেকেই ওপরের ফর্মুলা নিচে কপি করে নেবে।</p>
+    </div>
+
+    <h2>৩. টোটাল রো (Total Row)</h2>
+    
+    <div class="smart-card" style="border-left-color: #e67e22; background: #fffaf5;">
+        <p>মাউসের এক ক্লিকে পুরো টেবিলের যোগফল বা গড় বের করা যায়।</p>
+        <p><strong>পদ্ধতি:</strong> Table Design ট্যাব → <strong>Total Row</strong> বক্সে টিক দিন।</p>
+        <p>নিচে একটি নতুন রো আসবে যেখানে ড্রপ-ডাউন থেকে আপনি Sum, Average বা Count বেছে নিতে পারবেন।</p>
+    </div>
+
+    <h2>৪. স্লাইসার (Slicer) - আধুনিক ফিল্টার</h2>
+    
+    <div class="smart-card" style="border-left-color: #8e44ad; background: #f9f5ff;">
+        <p>টেবিলের সাথে Slicer ব্যবহার করলে ফিল্টার করা আরও আধুনিক হয়ে যায়। এটি মূলত কিছু বাটন তৈরি করে দেয় যা চাপলে ডাটা ফিল্টার হয়।</p>
+    </div>
+
+    <div class="quiz-wrap">
+        <h2 style="color: #f1c40f; border: none; margin-top: 0;"><i class="fas fa-tasks"></i> লার্নিং কুইজ (অধ্যায় ১৪)</h2>
+        
+        <div class="quiz-item">
+            <span class="question">১. সাধারণ ডাটাকে স্মার্ট টেবিলে রূপান্তর করার শর্টকাট কোনটি?</span>
+            <span class="answer">উত্তর: Ctrl + T।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="question">২. টেবিল ফর্মুলায় [@ColumnName] এর @ চিহ্ন দিয়ে কী বোঝানো হয়?</span>
+            <span class="answer">উত্তর: এটি দিয়ে "বর্তমান রো" (Current Row) বোঝানো হয়।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="question">৩. টেবিলের নিচে অটোমেটিক হিসাব করার রো-টির নাম কী?</span>
+            <span class="answer">উত্তর: Total Row।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="question">৪. টেবিলের ভেতরে নতুন তথ্য লিখলে কি ফর্মুলা আবার টাইপ করতে হয়?</span>
+            <span class="answer">উত্তর: না, টেবিল স্বয়ংক্রিয়ভাবে ফর্মুলা কপি করে নেয়।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="question">৫. টেবিল ডিজাইন পরিবর্তন করার জন্য কোন ট্যাবে যেতে হয়?</span>
+            <span class="answer">উত্তর: Table Design ট্যাবে।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="question">৬. "My table has headers" অপশনটি কেন ব্যবহার করা হয়?</span>
+            <span class="answer">উত্তর: যাতে প্রথম রো-টিকে শিরোনাম (Header) হিসেবে গণ্য করা হয়।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="question">৭. টেবিল থেকে ডাটা ফিল্টার করার আধুনিক ও দৃশ্যমান বাটনটির নাম কী?</span>
+            <span class="answer">উত্তর: Slicer।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="question">৮. টেবিল কি স্বয়ংক্রিয়ভাবে বর্ডার এবং কালার সেট করে দেয়?</span>
+            <span class="answer">উত্তর: হ্যাঁ।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="question">৯. টেবিলের মাঝখানে নতুন রো ইনসার্ট করলে কি ফরম্যাটিং নষ্ট হবে?</span>
+            <span class="answer">উত্তর: না, ডিজাইন এবং ফর্মুলা অটোমেটিক আপডেট হবে।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="question">১০. টোটাল রো-তে কি শুধু যোগফল বের করা যায়?</span>
+            <span class="answer">উত্তর: না, ড্রপ-ডাউন থেকে Average, Max, Min ইত্যাদিও বের করা যায়।</span>
+        </div>
+    </div>
+
+    <div class="btn-container">
+        <a href="https://drive.google.com/uc?export=download&id=1DjgGVLLwSSxxNnh7koVBf7p6NO2bMBzy" class="btn-dl">
+            <i class="fas fa-file-pdf"></i> অধ্যায় ১৪ এর PDF নোট ডাউনলোড করুন
+        </a>
+    </div>
+
+</div>
+
+<footer>
+    <strong>Super Success Computer Education Center</strong><br>
+    বিপুল সরকার | ডিজিটাল এক্সেল লার্নিং ২০২৬
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel Chapter 12 - SSCEC</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --level2: #f39c12;
+            --excel-green: #217346;
+            --dark-blue: #2c3e50;
+            --soft-yellow: #fffdf2;
+        }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f4f7f6; color: #333; line-height: 1.6; margin: 0; padding: 0; }
+        
+        header { background: linear-gradient(135deg, #f39c12, #e67e22); color: white; padding: 50px 20px; text-align: center; border-bottom: 5px solid var(--dark-blue); }
+        
+        .container { max-width: 900px; margin: 30px auto; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+
+        h2 { color: var(--excel-green); border-bottom: 2px solid #eee; padding-bottom: 10px; margin-top: 35px; display: flex; align-items: center; gap: 12px; }
+        
+        .feature-card { background: var(--soft-yellow); border: 1px solid #f9ebcc; padding: 25px; border-radius: 15px; margin: 20px 0; border-left: 6px solid var(--level2); }
+        
+        .path { background: #eee; padding: 5px 12px; border-radius: 5px; font-size: 0.9rem; color: #555; font-weight: bold; }
+        
+        .icon-demo { display: flex; gap: 15px; margin-top: 10px; font-size: 1.2rem; }
+        .green { color: #27ae60; } .yellow { color: #f1c40f; } .red { color: #e74c3c; }
+
+        /* Quiz Styling */
+        .quiz-section { background: var(--dark-blue); color: white; padding: 35px; border-radius: 20px; margin-top: 50px; }
+        .quiz-item { border-bottom: 1px solid rgba(255,255,255,0.1); padding: 18px 0; }
+        .q-text { color: #f1c40f; font-weight: bold; display: block; margin-bottom: 5px; }
+        .a-text { color: #ecf0f1; font-style: italic; opacity: 0.9; }
+
+        /* Download Section */
+        .dl-section { text-align: center; margin-top: 40px; }
+        .dl-btn {
+            display: inline-block; background: var(--excel-green); color: white; padding: 18px 45px; 
+            text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 1.1rem;
+            transition: 0.3s; box-shadow: 0 5px 20px rgba(33, 115, 70, 0.3);
+        }
+        .dl-btn:hover { background: #185a37; transform: translateY(-3px); }
+
+        footer { text-align: center; padding: 40px; color: #888; border-top: 1px solid #eee; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1><i class="fas fa-paint-roller"></i> অধ্যায় ১২: কন্ডিশনাল ফরম্যাটিং</h1>
+    <p>শর্ত সাপেক্ষে ডাটাকে রঙিন ও অর্থবহ করার শিল্প</p>
+</header>
+
+<div class="container">
+    
+    <p style="font-size: 1.1rem; color: #555;">সহজ কথায়: <strong>"যদি কোনো শর্ত মিলে যায়, তবে সেই ঘরটি রঙিন হয়ে যাবে।"</strong> এটি ব্যবহার করলে রিপোর্ট দেখার সময় আলাদা করে সংখ্যা পড়তে হয় না, রঙ দেখেই দ্রুত সিদ্ধান্ত নেওয়া যায়।</p>
+
+    <h2><i class="fas fa-highlighter"></i> ১. হাইলাইট সেল রুলস (Highlight Cell Rules)</h2>
+    <div class="feature-card">
+        <p>এটি সবচেয়ে বেশি ব্যবহৃত হয়। আপনি নির্দিষ্ট শর্তে ঘরগুলোকে হাইলাইট করতে পারেন:</p>
+        <ul>
+            <li><strong>Greater Than:</strong> নির্দিষ্ট সংখ্যার চেয়ে বড় হলে।</li>
+            <li><strong>Less Than:</strong> নির্দিষ্ট সংখ্যার চেয়ে ছোট হলে।</li>
+            <li><strong>Equal To:</strong> নির্দিষ্ট সংখ্যার সমান হলে।</li>
+            <li><strong>Text that Contains:</strong> নির্দিষ্ট কোনো শব্দ (যেমন: "Pass" বা "Fail") থাকলে।</li>
+        </ul>
+    </div>
+
+    <h2><i class="fas fa-chart-bar"></i> ২. ডাটা বার্স (Data Bars)</h2>
+    <div class="feature-card" style="border-left-color: #2980b9;">
+        <p>এটি প্রতিটি সেলের ভেতর একটি ছোট গ্রাফ তৈরি করে। সংখ্যা যত বড় হবে, বার তত লম্বা হবে।</p>
+        <span class="path">Path: Home → Conditional Formatting → Data Bars</span>
+    </div>
+
+    <h2><i class="fas fa-swatchbook"></i> ৩. কালার স্কেল (Color Scales)</h2>
+    <div class="feature-card" style="border-left-color: #27ae60;">
+        <p>পুরো ডাটা রেঞ্জকে একটি রঙের আবহ (Gradient) দেয়। যেমন: তাপমাত্রার ক্ষেত্রে বেশি হলে গাঢ় লাল এবং কম হলে হালকা নীল।</p>
+    </div>
+
+    <h2><i class="fas fa-shapes"></i> ৪. আইকন সেটস (Icon Sets)</h2>
+    <div class="feature-card" style="border-left-color: #8e44ad;">
+        <p>সংখ্যার বদলে সিগন্যাল বা টিক চিহ্ন ব্যবহার করা হয়:</p>
+        <div class="icon-demo">
+            <span class="green"><i class="fas fa-check-circle"></i> ভালো বা পাস</span>
+            <span class="yellow"><i class="fas fa-exclamation-triangle"></i> গড়ে বা মাঝামাঝি</span>
+            <span class="red"><i class="fas fa-times-circle"></i> বিপদ বা ফেল</span>
+        </div>
+    </div>
+
+    <div class="quiz-section">
+        <h2 style="color: #f1c40f; border: none; margin-top: 0;"><i class="fas fa-tasks"></i> কুইজ টাইম (অধ্যায় ১২)</h2>
+        
+        <div class="quiz-item">
+            <span class="q-text">১. কন্ডিশনাল ফরম্যাটিং অপশনটি এক্সেলের কোন ট্যাবে পাওয়া যায়?</span>
+            <span class="a-text">উত্তর: Home ট্যাবে।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="q-text">২. ৪০-এর কম মার্কস পাওয়া ছাত্রদের সেলগুলো লাল করতে কোন রুলটি ব্যবহার করবেন?</span>
+            <span class="a-text">উত্তর: Highlight Cell Rules → Less Than।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="q-text">৩. সেলের ভেতর ছোট ছোট গ্রাফ বা বারের মতো কালার দেখাতে কোনটি ব্যবহার করা হয়?</span>
+            <span class="a-text">উত্তর: Data Bars।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="q-text">৪. "Pass" লেখা ঘরগুলো সবুজ করতে চাইলে কোন অপশনটি বেছে নিতে হবে?</span>
+            <span class="a-text">উত্তর: Highlight Cell Rules → Text that Contains।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="q-text">৫. কালার স্কেল (Color Scale) সাধারণত কী কাজে লাগে?</span>
+            <span class="a-text">উত্তর: ডাটার মানের ওপর ভিত্তি করে বিভিন্ন রঙের শেড তৈরি করতে।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="q-text">৬. কন্ডিশনাল ফরম্যাটিং কি টেক্সট বা লেখায় ব্যবহার করা যায়?</span>
+            <span class="a-text">উত্তর: হ্যাঁ, নির্দিষ্ট শব্দ খোঁজার জন্য এটি ব্যবহার করা যায়।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="q-text">৭. ডাটা রেঞ্জে ডুপ্লিকেট তথ্য খুঁজে বের করার সহজ উপায় কী?</span>
+            <span class="a-text">উত্তর: Highlight Cell Rules → Duplicate Values।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="q-text">৮. আইকন সেট (Icon Set) এর একটি বাস্তব উদাহরণ দিন।</span>
+            <span class="a-text">উত্তর: মোবাইল নেটওয়ার্কের সিগন্যাল বার বা ট্রাফিক লাইট।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="q-text">৯. সেল থেকে কন্ডিশনাল ফরম্যাটিং মুছে ফেলতে চাইলে কী করতে হবে?</span>
+            <span class="a-text">উত্তর: Conditional Formatting → Clear Rules।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="q-text">১০. কন্ডিশনাল ফরম্যাটিং-এর সবচেয়ে বড় সুবিধা কী?</span>
+            <span class="a-text">উত্তর: রঙ বা আইকন দেখে দ্রুত ডাটা বিশ্লেষণ করা যায়।</span>
+        </div>
+    </div>
+
+    <div class="dl-section">
+        <a href="https://drive.google.com/uc?export=download&id=1PgJXpXjWfTQrO2p0ZEa2xzLszJ6Pj263" class="dl-btn">
+            <i class="fas fa-file-pdf"></i> অধ্যায় ১২ এর PDF নামিয়ে নিন
+        </a>
+    </div>
+
+</div>
+
+<footer>
+    <strong>Super Success Computer Education Center</strong><br>
+    বিপুল সরকার | 📞 8017247298
+</footer>
+
+</body>
+</html>

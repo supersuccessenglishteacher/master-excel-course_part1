@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel Chapter 5 - SSCEC</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --excel-green: #217346;
+            --excel-light: #e9f5ee;
+            --accent: #2980b9;
+            --text-dark: #2c3e50;
+        }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f4f7f6; color: var(--text-dark); line-height: 1.6; margin: 0; padding: 0; }
+        
+        /* Header */
+        header { background: var(--excel-green); color: white; padding: 40px 20px; text-align: center; border-bottom: 5px solid #f1c40f; }
+        header h1 { margin: 0; font-size: 1.8rem; }
+
+        .container { max-width: 900px; margin: 30px auto; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+
+        h2 { color: var(--excel-green); border-bottom: 2px solid #ddd; padding-bottom: 10px; margin-top: 35px; display: flex; align-items: center; gap: 10px; }
+        
+        /* Highlight Box */
+        .info-box { background: var(--excel-light); border-left: 5px solid var(--excel-green); padding: 20px; border-radius: 5px; margin: 20px 0; }
+        .tip-box { background: #e8f4fd; border-left: 5px solid var(--accent); padding: 15px; border-radius: 5px; margin: 20px 0; font-weight: bold; }
+
+        /* Tables */
+        table { width: 100%; border-collapse: collapse; margin: 25px 0; background: white; }
+        th { background: var(--excel-green); color: white; padding: 15px; text-align: left; }
+        td { border: 1px solid #eee; padding: 15px; }
+        tr:nth-child(even) { background: #f9f9f9; }
+
+        /* Formula Style */
+        .code { background: #f1f1f1; padding: 2px 8px; border-radius: 4px; font-family: 'Courier New', Courier, monospace; font-weight: bold; color: #c0392b; }
+
+        /* Quiz Section */
+        .quiz-section { background: #2c3e50; color: white; padding: 35px; border-radius: 15px; margin-top: 50px; }
+        .quiz-item { margin-bottom: 20px; border-bottom: 1px solid #3e5871; padding-bottom: 15px; }
+        .question { color: #f1c40f; font-weight: bold; display: block; margin-bottom: 5px; }
+        .answer { color: #ecf0f1; font-style: italic; }
+
+        /* Download Button */
+        .download-btn {
+            display: inline-block; background: var(--excel-green); color: white; padding: 15px 35px; 
+            text-decoration: none; border-radius: 50px; font-weight: bold; margin: 40px 0;
+            transition: 0.3s; box-shadow: 0 4px 15px rgba(33, 115, 70, 0.3);
+        }
+        .download-btn:hover { background: #185a37; transform: translateY(-3px); }
+
+        footer { text-align: center; padding: 40px; color: #888; border-top: 1px solid #eee; }
+
+        @media (max-width: 600px) { .container { padding: 20px; margin: 10px; } }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1><i class="fas fa-functions"></i> অধ্যায় ৫: বেসিক ফাংশন (Basic Functions)</h1>
+</header>
+
+<div class="container">
+    
+    <h2><i class="fas fa-info-circle"></i> ফাংশন (Function) কী?</h2>
+    <p>ফাংশন হলো এক্সেলে তৈরি করা কিছু বিশেষ সূত্র (Formula)। বড় বড় হিসাব করার জন্য আপনাকে কষ্ট করে একটা একটা ঘর যোগ করতে হবে না, শুধু ফাংশনের নাম লিখলেই হবে।</p>
+    
+    <div class="info-box">
+        <strong>মনে রাখবেন:</strong> প্রতিটি ফাংশন শুরু হয় <strong>=</strong> দিয়ে এবং এরপর একটি ব্র্যাকেট <strong>( )</strong> ব্যবহার করতে হয়।
+    </div>
+
+    <h2><i class="fas fa-list-ol"></i> ৫টি প্রয়োজনীয় ফাংশন</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ফাংশনের নাম</th>
+                <th>কাজ</th>
+                <th>উদাহরণ (Range A1:A5)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>SUM</strong></td>
+                <td>অনেকগুলো সংখ্যার মোট যোগফল বের করা।</td>
+                <td><span class="code">=SUM(A1:A5)</span></td>
+            </tr>
+            <tr>
+                <td><strong>AVERAGE</strong></td>
+                <td>সব সংখ্যার গড় (Average) মান বের করা।</td>
+                <td><span class="code">=AVERAGE(A1:A5)</span></td>
+            </tr>
+            <tr>
+                <td><strong>COUNT</strong></td>
+                <td>শুধুমাত্র কয়টি ঘরে সংখ্যা আছে তা গণনা করা।</td>
+                <td><span class="code">=COUNT(A1:A5)</span></td>
+            </tr>
+            <tr>
+                <td><strong>MAX</strong></td>
+                <td>তালিকার মধ্যে সবচেয়ে বড় সংখ্যাটি খুঁজে বের করা।</td>
+                <td><span class="code">=MAX(A1:A5)</span></td>
+            </tr>
+            <tr>
+                <td><strong>MIN</strong></td>
+                <td>তালিকার মধ্যে সবচেয়ে ছোট সংখ্যাটি খুঁজে বের করা।</td>
+                <td><span class="code">=MIN(A1:A5)</span></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="tip-box">
+        <i class="fas fa-lightbulb"></i> <strong>রেঞ্জ (Range) টিপস:</strong> এক্সেলে <strong>: (কোলন)</strong> চিহ্নের মানে হলো "থেকে"। যেমন- A1:A100 মানে হলো A1 থেকে A100 পর্যন্ত সবগুলো ঘর।
+    </div>
+
+    <div class="quiz-section">
+        <h2><i class="fas fa-question-circle"></i> বেসিক ফাংশন কুইজ (অধ্যায় ৫)</h2>
+        
+        <div class="quiz-item">
+            <span class="question">১. প্রশ্ন: এক্সেলে অনেকগুলো সংখ্যার যোগফল দ্রুত বের করার ফাংশন কোনটি?</span>
+            <span class="answer">উত্তর: SUM।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="question">২. প্রশ্ন: গড় বের করার জন্য এক্সেলে কোন ফাংশন ব্যবহার করা হয়?</span>
+            <span class="answer">উত্তর: AVERAGE।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="question">৩. প্রশ্ন: একটি তালিকায় সবচেয়ে বড় সংখ্যাটি খুঁজে পেতে কোন ফাংশনটি লিখতে হবে?</span>
+            <span class="answer">উত্তর: MAX।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="question">৪. প্রশ্ন: COUNT ফাংশনটি দিয়ে কী করা হয়?</span>
+            <span class="answer">উত্তর: একটি রেঞ্জের ভেতর কয়টি সেলে সংখ্যা বা নম্বর আছে তা গণনা করা হয়।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="question">৫. প্রশ্ন: একটি বড় লিস্টের মধ্যে সবচেয়ে কম বা ছোট সংখ্যাটি বের করতে কোনটি ব্যবহার করবেন?</span>
+            <span class="answer">উত্তর: MIN।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="question">৬. প্রশ্ন: =SUM(B1:B10) এখানে : (কোলন) চিহ্নটি কী বোঝায়?</span>
+            <span class="answer">উত্তর: এটি একটি Range বা "থেকে" বোঝায় (B1 থেকে B10 পর্যন্ত)।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="question">৭. প্রশ্ন: ফাংশনের শেষে কোন চিহ্নটি অবশ্যই ব্যবহার করতে হয়?</span>
+            <span class="answer">উত্তর: Parentheses বা ফার্স্ট ব্র্যাকেট ( )।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="question">৮. প্রশ্ন: যদি কোনো রেঞ্জে সংখ্যা এবং টেক্সট মেশানো থাকে, তবে COUNT ফাংশন কোনগুলো গুনবে?</span>
+            <span class="answer">উত্তর: শুধুমাত্র সংখ্যা (Numbers) গুলো গুনবে।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="question">৯. প্রশ্ন: মার্কশিট তৈরির সময় সব বিষয়ের গড় নম্বর বের করতে কোন ফাংশন দরকার হবে?</span>
+            <span class="answer">উত্তর: AVERAGE।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="question">১০. প্রশ্ন: সব ফাংশন এবং ফর্মুলা শুরু করার আগের সাধারণ নিয়মটি কী?</span>
+            <span class="answer">উত্তর: শুরুতে একটি = (সমান) চিহ্ন দেওয়া।</span>
+        </div>
+    </div>
+
+    <div style="text-align: center;">
+        <a href="https://drive.google.com/uc?export=download&id=1zHJCDypZL4n2lo_BZeMA6S7wT8oFBq05" class="download-btn">
+            <i class="fas fa-file-pdf"></i> অধ্যায় ৫ এর PDF ডাউনলোড করুন
+        </a>
+    </div>
+
+</div>
+
+<footer>
+    <strong>Super Success Computer Education Center</strong><br>
+    © 2026 Bipul Sarkar | Digital Classroom
+</footer>
+
+</body>
+</html>

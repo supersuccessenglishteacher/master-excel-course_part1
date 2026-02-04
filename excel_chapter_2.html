@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel Chapter 2 - SSCEC</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --excel-green: #217346;
+            --excel-light: #e9f5ee;
+            --accent: #f39c12;
+            --text-dark: #2c3e50;
+        }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f8fafc; color: var(--text-dark); line-height: 1.6; margin: 0; padding: 0; }
+        
+        /* Header */
+        header { background: var(--excel-green); color: white; padding: 40px 20px; text-align: center; border-bottom: 5px solid var(--accent); }
+        header h1 { margin: 0; font-size: 1.8rem; }
+
+        .container { max-width: 900px; margin: 30px auto; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+
+        h2 { color: var(--excel-green); border-bottom: 2px solid #ddd; padding-bottom: 10px; margin-top: 30px; display: flex; align-items: center; gap: 10px; }
+        h3 { color: #2c3e50; font-size: 1.3rem; margin-top: 25px; }
+
+        /* Tables */
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; background: white; border-radius: 8px; overflow: hidden; }
+        th { background: var(--excel-green); color: white; padding: 15px; text-align: left; }
+        td { border: 1px solid #eee; padding: 15px; }
+        tr:nth-child(even) { background: #f9f9f9; }
+
+        /* Highlight Boxes */
+        .info-box { background: var(--excel-light); border-left: 5px solid var(--excel-green); padding: 20px; border-radius: 5px; margin: 20px 0; }
+        .warning-box { background: #fff3cd; border-left: 5px solid #ffc107; color: #856404; padding: 20px; border-radius: 5px; margin: 20px 0; }
+        .task-box { background: #e8f4fd; border: 1px dashed #3498db; padding: 25px; border-radius: 12px; margin-top: 40px; }
+
+        /* Quiz */
+        .quiz-container { background: #2c3e50; color: white; padding: 30px; border-radius: 12px; margin-top: 40px; }
+        .quiz-item { margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid #3e5871; }
+        .question { color: #f1c40f; font-weight: bold; display: block; margin-bottom: 5px; }
+        .answer { color: #ecf0f1; font-style: italic; }
+
+        /* Download Button */
+        .download-btn {
+            display: inline-block; background: var(--excel-green); color: white; padding: 15px 35px; 
+            text-decoration: none; border-radius: 50px; font-weight: bold; margin: 30px 0;
+            transition: 0.3s; box-shadow: 0 4px 15px rgba(33, 115, 70, 0.3);
+        }
+        .download-btn:hover { background: #185a37; transform: translateY(-3px); }
+
+        footer { text-align: center; padding: 30px; color: #777; font-size: 0.9rem; }
+
+        @media (max-width: 600px) { .container { padding: 20px; margin: 10px; } }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1><i class="fas fa-edit"></i> অধ্যায় ২: বেসিক ডাটা এন্ট্রি (Data Entry)</h1>
+</header>
+
+<div class="container">
+    <p>এই অধ্যায়ে আমরা শিখবো কীভাবে এক্সেলে সঠিক নিয়মে তথ্য ইনপুট দিতে হয়।</p>
+
+    <h2><i class="fas fa-th-list"></i> ডাটা টাইপ (Text, Number, Date)</h2>
+    <p>এক্সেলে মূলত তিন ধরনের ডাটা আমরা বেশি ব্যবহার করি:</p>
+    <table>
+        <thead>
+            <tr>
+                <th>টাইপ</th>
+                <th>উদাহরণ</th>
+                <th>বিশেষ নোট</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>📝 Text (লেখা)</strong></td>
+                <td>Name, Dhaka</td>
+                <td>যেকোনো শব্দ বা বর্ণ। এটি সাধারণত সেলের বাম দিকে থাকে।</td>
+            </tr>
+            <tr>
+                <td><strong>🔢 Number (সংখ্যা)</strong></td>
+                <td>500, 25.5</td>
+                <td>গাণিতিক হিসাবের জন্য। এটি সাধারণত সেলের ডান দিকে থাকে।</td>
+            </tr>
+            <tr>
+                <td><strong>📅 Date (তারিখ)</strong></td>
+                <td>02-02-2026</td>
+                <td>দিন/মাস/বছর ফরমেটে লিখতে হয়।</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="warning-box">
+        <strong>⚠️ সাবধান:</strong> যদি আপনি কোনো সংখ্যার আগে সিঙ্গেল কোটেশন ( ' ) দেন (যেমন: '500), তবে এক্সেল সেটাকে টেক্সট হিসেবে ধরবে এবং আপনি সেটা দিয়ে যোগ-বিয়োগ করতে পারবেন না।
+    </div>
+
+    <h2><i class="fas fa-magic"></i> অটো ফিল (Auto Fill) - সময় বাঁচানোর জাদু ✨</h2>
+    <div class="info-box">
+        <p><strong>পদ্ধতি:</strong> একটি সেলে কিছু লিখুন → সেলের ডানদিকের নিচের কোণায় ছোট বিন্দুতে (Fill Handle) মাউস ধরুন → মাউস চেপে ধরে নিচে বা ডানে টানুন।</p>
+        <p><strong>ফলাফল:</strong> একই লেখা কপি হয়ে যাবে।</p>
+    </div>
+
+    <h3>🔹 সিরিজ ফিল (Series Fill) - ধারাবাহিকতা</h3>
+    <ul>
+        <li><strong>সংখ্যা:</strong> প্রথম সেলে ১ এবং পরের সেলে ২ লিখুন। দুটো সেল সিলেক্ট করে নিচে টানুন। (৩, ৪, ৫... চলে আসবে)।</li>
+        <li><strong>দিন/মাস:</strong> শুধু Mon লিখে টান দিলে Tue, Wed চলে আসবে। অথবা January লিখে টান দিলে পরের মাসগুলো অটো চলে আসবে।</li>
+    </ul>
+
+    <h2><i class="fas fa-copy"></i> কপি, কাট এবং পেস্ট (Copy, Cut, Paste)</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>কাজ</th>
+                <th>কিবোর্ড শর্টকাট</th>
+                <th>মাউস অ্যাকশন</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>নকল করা (Copy)</td>
+                <td><strong>Ctrl + C</strong></td>
+                <td>Right Click → Copy</td>
+            </tr>
+            <tr>
+                <td>সরিয়ে নেওয়া (Cut)</td>
+                <td><strong>Ctrl + X</strong></td>
+                <td>Right Click → Cut</td>
+            </tr>
+            <tr>
+                <td>বসানো (Paste)</td>
+                <td><strong>Ctrl + V</strong></td>
+                <td>Right Click → Paste</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="task-box">
+        <h2 style="margin-top:0; border:none;"><i class="fas fa-laptop-code"></i> আজকের প্র্যাকটিস টাস্ক (Homework)</h2>
+        <ul>
+            <li><strong>Column A:</strong> ১ থেকে ১০ পর্যন্ত সংখ্যা সিরিজ ফিল ব্যবহার করে লিখুন।</li>
+            <li><strong>Column B:</strong> আপনার ৫ জন বন্ধুর নাম লিখুন।</li>
+            <li><strong>Column C:</strong> জানুয়ারি থেকে মে মাস পর্যন্ত মাসের নাম অটো ফিল করে লিখুন।</li>
+        </ul>
+    </div>
+
+    <div class="quiz-container">
+        <h2><i class="fas fa-question-circle"></i> ডাটা এন্ট্রি ও অটো ফিল কুইজ</h2>
+        
+        <div class="quiz-item">
+            <span class="question">১. প্রশ্ন: সংখ্যার আগে সিঙ্গেল কোটেশন(') দিলে সেটি কী হিসেবে গণ্য হয়?</span>
+            <span class="answer">উত্তর: টেক্সট (Text)। (এটি তখন আর হিসাবের কাজে ব্যবহার করা যায় না)।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="question">২. প্রশ্ন: এক্সেলে ডাটা কাট (Cut) করার কিবোর্ড শর্টকাট কোনটি?</span>
+            <span class="answer">উত্তর: Ctrl + X।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="question">৩. প্রশ্ন: 'Monday' লিখে Fill Handle ধরেনিচে টানলে কী হবে?</span>
+            <span class="answer">উত্তর: পরের দিনগুলোর নাম (Tuesday, Wednesday...) ক্রমানুসারে চলে আসবে। এটিই হলো Auto Fill।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="question">৪. প্রশ্ন: সংখ্যা সিরিজ (১, ২, ৩...) তৈরি করতে কমপক্ষে কয়টি সেল লিখে সিলেক্ট করে টানতে হয়?</span>
+            <span class="answer">উত্তর: অন্তত ২টি সেল (যেমন: ১ এবং ২ লিখে সিলেক্ট করতে হবে)।</span>
+        </div>
+
+        <div class="quiz-item">
+            <span class="question">৫. প্রশ্ন: এক্সেলে তারিখ (Date) লেখার জন্য সঠিক চিহ্ন কোনটি?</span>
+            <span class="answer">উত্তর: স্ল্যাশ (/) অথবা ড্যাশ (-)। যেমন: 02/02/2026।</span>
+        </div>
+    </div>
+
+    <div style="text-align: center;">
+        <a href="https://drive.google.com/uc?export=download&id=1O5wwObGE7wr0DkTCq4IYo1FupI6VtJTw" class="download-btn">
+            <i class="fas fa-file-pdf"></i> অধ্যায় ২ এর PDF ডাউনলোড করুন
+        </a>
+    </div>
+
+</div>
+
+<footer>
+    <strong>Super Success Computer Education Center</strong><br>
+    © 2026 Bipul Sarkar | All Rights Reserved
+</footer>
+
+</body>
+</html>
